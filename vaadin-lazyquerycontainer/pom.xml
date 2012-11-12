@@ -2,14 +2,15 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 	<modelVersion>4.0.0</modelVersion>
-	<groupId>org.vaadin.addons.lazyquerycontainer</groupId>
-	<artifactId>vaadin-lazyquerycontainer</artifactId>
+	<groupId>org.vaadin.addons</groupId>
+	<artifactId>lazy-container-lite</artifactId>
 	<packaging>jar</packaging>
-	<version>1.2.11</version>
-	<name>vaadin-lazyquerycontainer</name>
+	<version>2.0.1</version>
+	<name>lazy-container-lite</name>
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <vaadin.version>7.0.0.beta7</vaadin.version>
 	</properties>
 
 	<build>
@@ -42,7 +43,7 @@
 				<configuration>
 					<archive>
 						<manifestEntries>
-							<Implementation-Title>Lazy Query Container</Implementation-Title>
+							<Implementation-Title>Lazy Container Lite</Implementation-Title>
 							<Implementation-Version>${project.version}</Implementation-Version>
 							<Vaadin-Package-Version>1</Vaadin-Package-Version>
 						</manifestEntries>
@@ -73,29 +74,36 @@
 				<enabled>true</enabled>
 			</snapshots>
 		</repository>
-		<repository>
-			<id>EclipseLink Repo</id>
-			<url>http://www.eclipse.org/downloads/download.php?r=1&amp;nf=1&amp;file=/rt/eclipselink/maven.repo</url>
-		</repository>
 	</repositories>
 
 	<dependencies>
-		<dependency>
-			<groupId>com.vaadin</groupId>
-			<artifactId>vaadin</artifactId>
-			<version>6.7.4</version>
-		</dependency>
-		<dependency>
-			<groupId>org.eclipse.persistence</groupId>
-			<artifactId>javax.persistence</artifactId>
-			<version>2.0.0</version>
-		</dependency>
-		<dependency>
-			<groupId>org.eclipse.persistence</groupId>
-			<artifactId>eclipselink</artifactId>
-			<version>2.0.0</version>
-			<scope>test</scope>
-		</dependency>
+        <dependency>
+            <groupId>com.vaadin</groupId>
+            <artifactId>vaadin-server</artifactId>
+            <version>${vaadin.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.vaadin</groupId>
+            <artifactId>vaadin-client-compiled</artifactId>
+            <version>${vaadin.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.vaadin</groupId>
+            <artifactId>vaadin-client</artifactId>
+            <version>${vaadin.version}</version>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>com.vaadin</groupId>
+            <artifactId>vaadin-themes</artifactId>
+            <version>${vaadin.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>javax.servlet</groupId>
+            <artifactId>servlet-api</artifactId>
+            <version>2.4</version>
+            <scope>provided</scope>
+        </dependency>
 		<dependency>
 			<groupId>hsqldb</groupId>
 			<artifactId>hsqldb</artifactId>
